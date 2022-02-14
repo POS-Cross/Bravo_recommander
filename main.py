@@ -4,8 +4,8 @@ from fastapi import FastAPI, Header, HTTPException
 import pymongo
 import random
 import pickle
-from fastapi.middleware.cors import CORSMiddleware
 
+from starlette.middleware.cors import CORSMiddleware
 
 description = """
 Basket Analysis is an unserpvised machine learning API that helps find rules
@@ -38,20 +38,12 @@ app = FastAPI(
 )
 
 origins = [
-    "https://khaledanaqwa.github.io",
-    "http://khaledanaqwa.github.io",
-    "https://khaledanaqwa.github.io/Bravo",
-    "http://khaledanaqwa.github.io/Bravo",
-    "https://khaledanaqwa.github.io/Bravo/offerRecommendation/items",
-    "http://khaledanaqwa.github.io/Bravo/offerRecommendation/items",
-    "http://localhost:4200/",
-    "https://localhost:4200/",
-
+    "https://khaledanaqwa.github.io:*"
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
