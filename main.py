@@ -8,7 +8,7 @@ import pickle
 from starlette.middleware.cors import CORSMiddleware
 
 description = """
-Basket Analysis is an unserpvised machine learning API that helps find rules
+Offer Recommendation  is an unserpvised machine learning API that helps find rules
  asscosiation in your point of sales transactions. 🚀
 
 ## Offers
@@ -22,7 +22,7 @@ You can **generate rules** using many options.
 """
 
 app = FastAPI(
-    title="Basket Analysis API",
+    title="Offer Recommendation  API",
     description=description,
     version="0.0.1",
     terms_of_service="http://example.com/terms/",
