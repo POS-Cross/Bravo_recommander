@@ -38,6 +38,8 @@ app = FastAPI(
 )
 
 origins = [
+    "https://khaledanaqwa.github.io",
+    "http://khaledanaqwa.github.io",
     "https://khaledanaqwa.github.io/Bravo",
     "http://khaledanaqwa.github.io/Bravo",
     "https://khaledanaqwa.github.io/Bravo/offerRecommendation/items",
