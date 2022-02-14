@@ -36,9 +36,20 @@ app = FastAPI(
         "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
     },
 )
+
+origins = [
+    "https://khaledanaqwa.github.io/Bravo",
+    "http://khaledanaqwa.github.io/Bravo",
+    "https://khaledanaqwa.github.io/Bravo/offerRecommendation/items",
+    "http://khaledanaqwa.github.io/Bravo/offerRecommendation/items",
+    "http://localhost:4200/",
+    "https://localhost:4200/",
+
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
