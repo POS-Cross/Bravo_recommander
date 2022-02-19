@@ -1,6 +1,6 @@
 import json
 from typing import Optional
-from fastapi import FastAPI, Header, HTTPException
+from fastapi import FastAPI, Header, HTTPException,Response
 import pymongo
 import random
 import pickle
@@ -341,12 +341,13 @@ async def getDailyData():
     return DailyData
 
 @app.get("/getRecommendation")
-async def getRecommendation(ListItems: Optional[str] = Header(None),BundelSize: Optional[str] = Header(None),ListType: Optional[str] = Header(None)):
+async def getRecommendation(response:Response,ListItems: Optional[str] = Header(None),BundelSize: Optional[str] = Header(None),ListType: Optional[str] = Header(None)):
     loaded_model = pickle.load(open('models/UpdateRamadan_rules.pkl', 'rb'))
     print(str(ListType))
     if (ListType == "School"):
         loaded_model = pickle.load(open('models/UpdateSchool_rules.pkl', 'rb'))
-
+    response.headers['Access-Control-Allow-Origin']='*'
+    response.headers['Access-Control-Allow-Methods']='GET'
     return getPredictionForList(json.loads(ListItems),loaded_model,int(BundelSize))
 
 
