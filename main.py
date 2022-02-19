@@ -38,7 +38,7 @@ app = FastAPI(
 )
 
 origins = [
-    "https://khaledanaqwa.github.io:80",
+    "https://khaledanaqwa.github.io",
     "http://localhost:4200",
     "185.199.108.153:443"
 ]
