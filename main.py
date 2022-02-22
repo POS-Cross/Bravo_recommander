@@ -42,14 +42,14 @@ origins = [
     "http://localhost:4200",
     "185.199.108.153:443"
 ]
+# app = CORSMiddleware(
+#     app=app,
+#     allow_origins=orgins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
-)
 
 
 def splitDay(value):
@@ -351,6 +351,12 @@ async def getRecommendation(response:Response,ListItems: Optional[str] = Header(
     response.headers['Access-Control-Allow-Methods']='GET'
     return getPredictionForList(json.loads(ListItems),loaded_model,int(BundelSize))
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 
